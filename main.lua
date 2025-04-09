@@ -40,7 +40,7 @@
         calculate = function(self,card,context)
             if self.debuff then return nil end
             if context.individual and context.cardarea == G.play and not SMODS.has_no_rank(context.other_card) and not context.blueprint then
-                if not context.other_card.debuff then
+                if not context.other_card.debuff and context.other_card:is_suit('Clubs') then
                     card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod
                     return {
                         message = localize('k_upgrade_ex'),
